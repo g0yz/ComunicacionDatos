@@ -27,7 +27,11 @@ async function fetchUltimoAudio() {
 //const { createFFmpeg, fetchFile } = FFmpeg;
 
 
+// variable que indica la tasa de muestreo elegida
 let selectedSampleRate = null;
+
+// variable que indica el bit de cuantizacion elegido
+let selectedBitDepth = null;
 
 document.getElementById("convertir").addEventListener("click", () => {
     selectedSampleRate = getSelectedSampleRate();
@@ -36,6 +40,8 @@ document.getElementById("convertir").addEventListener("click", () => {
     alert(`Tasa seleccionada: ${selectedSampleRate ?? 'Tasa Original'}`);
 });
 
+
+//funcion que indica la tasa de muestreo seleccionada del front
 function getSelectedSampleRate() {
   const radios = document.querySelectorAll('input[name="tasaMuestreo"]');
   for (const radio of radios) {
@@ -51,7 +57,6 @@ function getSelectedSampleRate() {
   }
   return null;
 }
-
 
 
 async function convertirYDescargarMP3() {
